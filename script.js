@@ -49,30 +49,3 @@ function createInsect() {
     game_container.appendChild(insect)
 }
 
-function getRandomLocation() {
-    const width = window.innerWidth
-    const height = window.innerHeight
-    const x = Math.random() * (width - 200) + 100
-    const y = Math.random() * (height - 200) + 100
-    return { x, y }
-}
-
-function catchInsect() {
-    increaseScore()
-    this.classList.add('caught')
-    setTimeout(() => this.remove(), 2000)
-    addInsects()
-}
-
-function addInsects() {
-    setTimeout(createInsect, 1000)
-    setTimeout(createInsect, 1500)
-}
-
-function increaseScore() {
-    score++
-    if(score > 19) {
-        message.classList.add('visible')
-    }
-    scoreEl.innerHTML = `Score: ${score}`
-}
